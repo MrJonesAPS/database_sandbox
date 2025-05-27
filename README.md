@@ -1,7 +1,7 @@
 A sandbox for my class Advanced Database Management (https://ict.gctaa.net/sections/itd256/)
 at [Arlington Tech](https://arlingtontech.apsva.us/) 
 where we explore several different
-database technologies: Sqlite, PostgreSQL, Redis, MongoDB, CockroachDB
+database technologies: Sqlite, PostgreSQL, Redis, MongoDB, CockroachDB, Neo4j
 
 Inspired by https://github.com/pamelafox/postgresql-playground/tree/main - thanks @pamelafox for the idea!
 
@@ -15,6 +15,8 @@ To use this repo:
 You can also run this on local VSCode with the [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 To run with this extension (or if you modify any of the config files in your codespace, make sure to run the command "Dev Containers: Rebuild and Reopen in Container")
 
+The Docker images for Neo4j and CockroachDB also include web UIs, which you can launch from the "Ports" tab.
+(I haven't gotten the Neo4j web UI to work from Github Codespaces, but it works in VSCode locally). 
 
 Note: I'm launching all databases automatically every time, even though we never actually use all of these together. My goal in creating this was to have something
 very easy for my database students to use. If you care about efficiency, you might want to make a modified version that only inludes the databases you need.
