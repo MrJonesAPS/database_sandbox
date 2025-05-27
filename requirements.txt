@@ -3,3 +3,4 @@ pymongo
 redis
 sqlalchemy
 sqlalchemy-cockroachdb
+neo4j
