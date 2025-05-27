@@ -8,6 +8,7 @@ import sqlite3
 import redis
 from pymongo import MongoClient
 import psycopg2
+from sqlalchemy import create_engine, text
 
 # --- PostgreSQL ---
 conn = psycopg2.connect(
@@ -27,3 +28,11 @@ print("Redis value for 'test':", r.get("test"))
 # --- SQLite ---
 conn = sqlite3.connect("local.db")
 print("Connected to SQLite, cursor:", conn.cursor())
+
+# --- Cockroach ---
+engine = create_engine("cockroachdb://root@cockroach:26257/defaultdb?sslmode=disable")
+
+with engine.connect() as connection:
+    result = connection.execute(text("SELECT now()"))
+    for row in result:
+        print("CockroachDB Time:", row[0])
