@@ -9,6 +9,7 @@ import redis
 from pymongo import MongoClient
 import psycopg2
 from sqlalchemy import create_engine, text
+from neo4j import GraphDatabase
 
 # --- PostgreSQL ---
 conn = psycopg2.connect(
@@ -36,3 +37,11 @@ with engine.connect() as connection:
     result = connection.execute(text("SELECT now()"))
     for row in result:
         print("CockroachDB Time:", row[0])
+
+# --- Neo4j ---
+driver = GraphDatabase.driver("bolt://neo4j:7687", auth=("neo4j", "testpassword"))
+
+with driver.session() as session:
+    result = session.run("RETURN 'Hello, Neo4j!' AS message")
+    for record in result:
+        print(record["message"])
