@@ -3,7 +3,7 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
-  "forwardPorts": [5432, 6379, 27017, 26257, 8080, 7474, 7687],
+  "forwardPorts": [5432, 6379, 27017, 26257, 8080, 7474, 7687,8081],
   "portsAttributes": {
     "5432": { "label": "PostgreSQL" },
     "6379": { "label": "Redis" },
@@ -11,7 +11,8 @@
     "26257": { "label": "Cockroach SQL" },
     "8080": { "label": "Cockroach Admin UI", "onAutoForward": "openBrowser" },
     "7474": { "label": "Neo4j Browser", "onAutoForward": "openBrowser" },
-    "7687": { "label": "Neo4j Bolt" }
+    "7687": { "label": "Neo4j Bolt" },
+    "8081": { "label": "pgAdmin" }
   },
   "overrideCommand": true,
   "customizations": {

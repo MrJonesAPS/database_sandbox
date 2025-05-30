@@ -23,6 +23,22 @@ services:
     networks:
       - internal
 
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8081:80"
+    networks:
+      - internal
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
   redis:
     image: redis:latest
     restart: unless-stopped
@@ -70,6 +86,7 @@ volumes:
   mongo-data:
   cockroach-data:
   neo4j-data:
+  pgadmin-data:
 
 networks:
   internal:
